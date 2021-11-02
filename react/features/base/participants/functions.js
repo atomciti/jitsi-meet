@@ -124,6 +124,18 @@ export function getParticipantById(
 }
 
 /**
+ * Returns a selector that gets the participant by id.
+ *
+ * @param {string} id - The ID of the participant to retrieve.
+ * @returns {Function}
+ */
+export function getParticipantByIdSelectorCreator(id: string) {
+    return function(state: Object | Function) {
+        return getParticipantById(state, id);
+    };
+}
+
+/**
  * Returns the participant with the ID matching the passed ID or the local participant if the ID is
  * undefined.
  *
